@@ -1,0 +1,74 @@
+<div class="map-container">
+  <div class="top-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light top-bar-nav">
+
+      <div class="d-flex flex-row gap-3">
+        <span class="number"><i class="bi bi-dot text-danger"></i>{{ viewIncidentdetails.length }}</span>
+        <div class="d-flex flex-column">
+          <span class="name">Incidents</span>
+          <span class="increase"><i class="bi bi-caret-up-fill fs-6"></i>18% Increase</span>
+        </div>
+      </div>
+
+      <div class="vertical-line"></div>
+
+      <div class="d-flex flex-row gap-3">
+        <span class="number"><i class="bi bi-dot text-warning"></i>92%</span>
+        <div class="d-flex flex-column">
+          <span class="name">Fire</span>
+          <span class="name">Coverage</span>
+        </div>
+      </div>
+
+      <div class="vertical-line"></div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- Content on the left side of the navbar -->
+        </ul>
+
+        <div class="dropdown-container ml-auto">
+          <div class="dropdown" [class.show]="isDropdownOpen" (click)="toggleDropdown()">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ selectedDropdownItem?.itemName || 'Select item' }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div class="form-check" *ngFor="let item of dropdownList">
+                <input class="form-check-input" type="checkbox" [id]="'checkbox_' + item.id"
+                  [name]="'checkbox_' + item.id" [ngModel]="item.selected"
+                  (ngModelChange)="onCheckboxChange($event, item)">
+                <label class="form-check-label" [for]="'checkbox_' + item.id">{{ item.itemName }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-center justify-content-end">
+        <i class="bi bi-book large m-2 text-dark"></i>
+      </div>
+    </nav>
+  </div>
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [mapTypeId]="selectedMapType">
+
+    <div *ngFor="let m of fireDepartementdetails">
+      <agm-marker [latitude]="m.latitude" [longitude]="m.longitude">
+        <agm-info-window [isOpen]="true">
+          <strong class="address-zip">Zip Code: {{ m.zipCode }}</strong><br>
+          <strong class="address-location">Address: {{ m.locationType }}</strong>
+        </agm-info-window>
+      </agm-marker>
+    </div>
+
+    <div *ngFor="let v of viewIncidentdetails">
+      <agm-marker [latitude]="v.latitude" [longitude]="v.longitude">
+        <agm-info-window [isOpen]="true" class="infowindow">
+          <strong class="text-danger">Zip Code: {{ v.zipCode }}</strong><br>
+          <strong class="text-danger">Address: {{ v.locationType }}</strong>
+        </agm-info-window>
+      </agm-marker>
+    </div>
+  </agm-map>
+</div>

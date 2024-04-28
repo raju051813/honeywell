@@ -1,0 +1,139 @@
+.sidebar {
+  float: left;
+}
+
+.dropdown-toggle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  color: #525252;
+  background-color: #fff;
+  border: 1px solid #525252;
+}
+
+.dropdown-container {
+  padding: 10px;
+}
+
+.checkbox {
+  margin-bottom: 5px;
+}
+
+agm-map {
+  //height: 300px;
+  //display: list-item;
+  height: 100vh;
+  margin: 10px;
+}
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: -12px;
+  //padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  /* Ensure the top bar appears above the map */
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  /* Set the desired height for the map */
+}
+
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+#map {
+  height: 100%;
+}
+
+.addresszip {
+  color: black;
+  /* Text color */
+
+}
+
+.fire {
+  font-size: 28px;
+}
+
+.glance {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.number {
+  font-weight: 400;
+  font-size: 32px;
+  color: #606060;
+}
+
+.name {
+  font-size: 14px;
+  color: #303030;
+  font-family: sans-serif;
+}
+
+.increase {
+  font-size: 14px;
+  font-weight: 400;
+  color: #EE3124;
+}
+
+.vertical-line {
+  border-left: 1px solid #eee;
+  height: 40px;
+  margin-left: 20px;
+}
+
+::marker {
+  color: #EE3124;
+}
+
+
+.container2 {
+  width: 400px;
+  height: 400px;
+}
+
+.header-color {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.dashboard {
+  font-size: 16px;
+}
+
+.community {
+  font-size: 20px;
+  font-family: sans-serif;
+  letter-spacing: 0.05rem;
+}
+
+.black-body {
+  background-color: 303030;
+  color: white;
+}
+
+#analysis {
+  width: 500px;
+  height: 250px;
+}
+
+.sevrityanalysis {
+  margin-left: -50px;
+  margin-top: -50px;
+}
+
+.borderr {
+  border: 1px solid #505050;
+}

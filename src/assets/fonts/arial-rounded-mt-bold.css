@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'Arial Rounded MT Bold';
+    src: url('./arial-rounded-mt-bold.ttf') format('truetype');
+    /* You can include other font formats here (e.g., woff, woff2) */
+}

@@ -1,0 +1,75 @@
+<div class="container-fluid col col-lg-12">
+  <div class="row" style="line-height: 24px;">
+    <app-navigation></app-navigation>
+  </div>
+  <div class="container-fluid-row bg-darkgrey">
+    <div class="row ">
+      <div class="col col-lg-1 float-start">
+        <div class="sidebar">
+          <!-- <app-sidebar (incidentTypeSelected)="showIncidents($event)"></app-sidebar> -->
+          <app-sidebar></app-sidebar>
+        </div>
+      </div>
+      <div class="col col-lg-11 float-start">
+        <div class="row">
+          <div class="col d-flex flex-column">
+            <span class="ms-1 dashboard">Dashboard</span>
+            <span class="ms-1 fire">Fire Department</span>
+            <span class="ms-1 Address">{{this.Address}}</span>
+            <div class="ms-1 Address">FDID:<span class="Address c-red">17M15</span></div>
+          </div>
+          <div class="col d-flex flex-row justify-content-end">
+            <div class="p-2 mt-2">
+              <select class="form-select cursor-pointer" aria-label="table select" [(ngModel)]="selectedRegion"
+                (ngModelChange)="selectYear($event)">
+                <option value="" disabled>All Battalions</option>
+                <option *ngFor="let region of selectedRegions" [ngValue]="region">{{ region }}</option>
+              </select>
+            </div>
+            <div class="p-2 mt-2">
+              <select class="form-select cursor-pointer" aria-label="table select" [(ngModel)]="selectedZipCode"
+                (ngModelChange)="selectYear($event)">
+                <option value="" disabled>Search by ZIP</option>
+                <option *ngFor="let zipCode of selectedZipCodes" [ngValue]="zipCode">{{ zipCode }}</option>
+              </select>
+            </div>
+            <div class="p-2 mt-3">
+              <i class="bi bi-question-circle-fill me-2 c-blue"></i>
+              <a href="#" class="c-blue">HELP</a>
+            </div>
+          </div>
+        </div>
+        <hr class="m-0">
+        <div class="row ">
+          <div class=" col col-sm-auto">
+            <p class="ms-1 glance">AT A GLANCE</p>
+          </div>
+          <div class=" col col-sm-auto mt-1">
+            <select class="form-select form-select-sm cursor-pointer" aria-label="table select"
+              [(ngModel)]="selectedYear" (ngModelChange)="selectYear($event)">
+              <option value="" disabled>This Year</option>
+              <option *ngFor="let plan of years" [ngValue]="plan">{{ plan }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row ">
+          <div class=" col col-lg-8 col-md-8 col-sm-6">
+            <app-agm-map [selectedZipCodes]="selectedZipCodes" [selectedRegions]="selectedRegions"
+              [selectedYear]="selectedYear" [gmapDetails]="gmapDetails"></app-agm-map>
+          </div>
+          <div class=" col col-lg-4 col-md-4 col-sm-6">
+            <app-echarts [selectedZipCodes]="selectedZipCodes" [riskscores]="riskscores" [zipcodes]="zipcodes">
+            </app-echarts>
+          </div>
+        </div>
+        <div class="row m-2">
+          <span class="community ms-0 p-1  mt-3 ">INCIDENT SUMMARY</span>
+          <div class="col col-lg-4 mr-1 borderr">
+            <div class="name mt-2 p-1 c-white">SEVERITY ANALYSIS</div>
+            <div id="analysis" class="sevrityanalysis"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
